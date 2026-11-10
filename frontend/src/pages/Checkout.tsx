@@ -105,15 +105,15 @@ function Checkout() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-8 border-b border-gray-200 pb-6">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500">Secure checkout</p>
-        <h1 className="text-4xl font-medium tracking-tight text-black">Checkout</h1>
+      <div className="mb-8 border-b border-gray-200 pb-6 dark:border-gray-800">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500 dark:text-gray-300">Secure checkout</p>
+        <h1 className="text-4xl font-medium tracking-tight text-black dark:text-white">Checkout</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr]">
         <div className="space-y-8">
-          <section className="border border-gray-200 bg-white p-6">
-            <h2 className="mb-5 text-xl font-medium text-black">Shipping information</h2>
+          <section className="border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-[#181818]">
+            <h2 className="mb-5 text-xl font-medium text-black dark:text-white">Shipping information</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
                 label="Full name"
@@ -161,8 +161,8 @@ function Checkout() {
             </div>
           </section>
 
-          <section className="border border-gray-200 bg-white p-6">
-            <h2 className="mb-5 text-xl font-medium text-black">Payment method</h2>
+          <section className="border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-[#181818]">
+            <h2 className="mb-5 text-xl font-medium text-black dark:text-white">Payment method</h2>
             <div className="flex flex-wrap gap-3">
               {['Card', 'PayPal', 'Cash on delivery'].map((method) => (
                 <button
@@ -172,8 +172,8 @@ function Checkout() {
                   className={[
                     'border px-4 py-2 text-xs uppercase tracking-[0.18em] transition',
                     paymentMethod === method
-                      ? 'border-black bg-black text-white'
-                      : 'border-gray-300 bg-white text-gray-700 hover:border-black',
+                      ? 'border-black bg-black text-white dark:border-white dark:bg-white dark:text-black'
+                      : 'border-gray-300 bg-white text-gray-700 hover:border-black dark:border-gray-700 dark:bg-[#1a1a1a] dark:text-gray-200 dark:hover:border-white',
                   ].join(' ')}
                 >
                   {method}
@@ -206,8 +206,8 @@ function Checkout() {
           </section>
         </div>
 
-        <aside className="border border-gray-200 bg-gray-50 p-6">
-          <h2 className="mb-6 text-xl font-medium text-black">Order summary</h2>
+        <aside className="border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-[#181818]">
+          <h2 className="mb-6 text-xl font-medium text-black dark:text-white">Order summary</h2>
 
           {cartItems.length === 0 ? (
             <p className="text-sm text-gray-600">Your cart is empty.</p>
@@ -216,8 +216,8 @@ function Checkout() {
               {cartItems.map((item) => (
                 <div key={`${item.productId}-${item.size}-${item.color}`} className="flex gap-3 border-b border-gray-200 pb-4">
                   <img src={item.image} alt={item.name} className="h-20 w-20 object-cover" />
-                  <div className="flex-1 text-sm text-gray-600">
-                    <p className="font-medium text-black">{item.name}</p>
+                  <div className="flex-1 text-sm text-gray-600 dark:text-gray-300">
+                    <p className="font-medium text-black dark:text-white">{item.name}</p>
                     <p>
                       {item.color} · {item.size}
                     </p>
@@ -225,22 +225,22 @@ function Checkout() {
                       Qty {item.quantity}
                     </p>
                   </div>
-                  <p className="text-sm font-medium text-black">${(item.price * item.quantity).toFixed(2)}</p>
+                  <p className="text-sm font-medium text-black dark:text-white">${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
               ))}
             </div>
           )}
 
-          <div className="mt-6 space-y-3 text-sm text-gray-700">
+          <div className="mt-6 space-y-3 text-sm text-gray-700 dark:text-gray-200">
             <div className="flex items-center justify-between">
               <span>Subtotal</span>
-              <span className="text-black">${subtotal.toFixed(2)}</span>
+              <span className="text-black dark:text-white">${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Shipping</span>
-              <span className="text-black">{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+              <span className="text-black dark:text-white">{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
             </div>
-            <div className="flex items-center justify-between border-t border-gray-200 pt-4 text-base font-medium text-black">
+            <div className="flex items-center justify-between border-t border-gray-200 pt-4 text-base font-medium text-black dark:border-gray-700 dark:text-white">
               <span>Total</span>
               <span>${total.toFixed(2)}</span>
             </div>

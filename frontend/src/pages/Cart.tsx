@@ -67,40 +67,40 @@ function Cart() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-8 border-b border-gray-200 pb-6">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500">Your bag</p>
-        <h1 className="text-4xl font-medium tracking-tight text-black">Shopping cart</h1>
+      <div className="mb-8 border-b border-gray-200 pb-6 dark:border-gray-800">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500 dark:text-gray-300">Your bag</p>
+        <h1 className="text-4xl font-medium tracking-tight text-black dark:text-white">Shopping cart</h1>
       </div>
 
       <div className="grid gap-10 lg:grid-cols-[1.4fr_0.6fr]">
         <div className="space-y-6">
           {items.map((item) => (
-            <div key={`${item.productId}-${item.size}-${item.color}`} className="flex flex-col gap-5 border border-gray-200 bg-white p-4 sm:flex-row">
+            <div key={`${item.productId}-${item.size}-${item.color}`} className="flex flex-col gap-5 border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-[#181818] sm:flex-row">
               <img src={item.image} alt={item.name} className="h-36 w-full object-cover sm:w-32" />
 
               <div className="flex flex-1 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="text-xl font-medium text-black">{item.name}</h2>
-                  <p className="mt-2 text-sm text-gray-500">
+                  <h2 className="text-xl font-medium text-black dark:text-white">{item.name}</h2>
+                  <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
                     {item.color} · {item.size}
                   </p>
-                  <p className="mt-2 text-base font-medium text-black">${item.price}</p>
+                  <p className="mt-2 text-base font-medium text-black dark:text-white">${item.price}</p>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center border border-gray-300 bg-white">
+                  <div className="flex items-center border border-gray-300 bg-white dark:border-gray-700 dark:bg-[#1a1a1a]">
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.productId, item.size, item.color, -1)}
-                      className="h-10 w-10 text-lg text-gray-700 hover:bg-gray-100"
+                      className="h-10 w-10 text-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-[#2a2a2a]"
                     >
                       −
                     </button>
-                    <span className="w-10 text-center text-sm font-medium text-black">{item.quantity}</span>
+                    <span className="w-10 text-center text-sm font-medium text-black dark:text-white">{item.quantity}</span>
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.productId, item.size, item.color, 1)}
-                      className="h-10 w-10 text-lg text-gray-700 hover:bg-gray-100"
+                      className="h-10 w-10 text-lg text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-[#2a2a2a]"
                     >
                       +
                     </button>
@@ -109,7 +109,7 @@ function Cart() {
                   <button
                     type="button"
                     onClick={() => removeItem(item.productId, item.size, item.color)}
-                    className="text-xs font-medium uppercase tracking-[0.18em] text-gray-500 hover:text-black"
+                    className="text-xs font-medium uppercase tracking-[0.18em] text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white"
                   >
                     Remove
                   </button>
@@ -119,19 +119,19 @@ function Cart() {
           ))}
         </div>
 
-        <aside className="border border-gray-200 bg-gray-50 p-6">
-          <h2 className="mb-6 text-xl font-medium text-black">Order summary</h2>
+        <aside className="border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-[#181818]">
+          <h2 className="mb-6 text-xl font-medium text-black dark:text-white">Order summary</h2>
 
-          <div className="space-y-4 text-sm text-gray-700">
+          <div className="space-y-4 text-sm text-gray-700 dark:text-gray-200">
             <div className="flex items-center justify-between">
               <span>Subtotal</span>
-              <span className="text-black">${subtotal.toFixed(2)}</span>
+              <span className="text-black dark:text-white">${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex items-center justify-between">
               <span>Shipping</span>
-              <span className="text-black">{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+              <span className="text-black dark:text-white">{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
             </div>
-            <div className="flex items-center justify-between border-t border-gray-200 pt-4 text-base font-medium text-black">
+            <div className="flex items-center justify-between border-t border-gray-200 pt-4 text-base font-medium text-black dark:border-gray-700 dark:text-white">
               <span>Total</span>
               <span>${total.toFixed(2)}</span>
             </div>

@@ -18,8 +18,8 @@ function Input({
       {label ? <span className="mb-2 block text-sm font-medium text-gray-700">{label}</span> : null}
       <input
         className={[
-          'w-full border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition',
-          'focus:border-black',
+          'w-full border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition dark:border-gray-700 dark:bg-[#1a1a1a] dark:text-white',
+          'focus:border-black dark:focus:border-white',
           error ? 'border-red-500' : '',
           className,
         ].join(' ')}

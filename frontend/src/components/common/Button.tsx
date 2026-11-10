@@ -19,9 +19,9 @@ function Button({
   ...props
 }: ButtonProps) {
   const variantClasses: Record<ButtonVariant, string> = {
-    primary: 'bg-black text-white hover:bg-gray-800',
-    secondary: 'bg-white text-black border border-black hover:bg-gray-100',
-    ghost: 'bg-transparent text-black hover:bg-gray-100',
+    primary: 'bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200',
+    secondary: 'bg-white text-black border border-black hover:bg-gray-100 dark:bg-[#1b1b1b] dark:text-white dark:border-white/30 dark:hover:bg-[#222222]',
+    ghost: 'bg-transparent text-black hover:bg-gray-100 dark:text-white dark:hover:bg-white/10',
   }
 
   const sizeClasses: Record<ButtonSize, string> = {

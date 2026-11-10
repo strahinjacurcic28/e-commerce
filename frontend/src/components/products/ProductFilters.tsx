@@ -5,7 +5,7 @@ interface ProductFiltersProps {
   categories: string[]
   sizes: string[]
   selectedCategory: string
-  selectedSize: string
+  selectedSizes: string[]
   maxPrice: number
   searchTerm: string
   onCategoryChange: (value: string) => void
@@ -19,7 +19,7 @@ function ProductFilters({
   categories,
   sizes,
   selectedCategory,
-  selectedSize,
+  selectedSizes,
   maxPrice,
   searchTerm,
   onCategoryChange,
@@ -29,9 +29,9 @@ function ProductFilters({
   onClearFilters,
 }: ProductFiltersProps) {
   return (
-    <aside className="space-y-6 border border-gray-200 bg-white p-5">
+    <aside className="space-y-6 border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-[#181818]">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-lg font-medium uppercase tracking-[0.18em] text-black">Filters</h2>
+        <h2 className="text-lg font-medium uppercase tracking-[0.18em] text-black dark:text-white">Filters</h2>
         <Button variant="ghost" size="sm" onClick={onClearFilters} className="text-xs uppercase tracking-[0.12em]">
           Reset
         </Button>
@@ -47,7 +47,7 @@ function ProductFilters({
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">Category</label>
+        <label className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">Category</label>
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
@@ -57,8 +57,8 @@ function ProductFilters({
               className={[
                 'border px-3 py-2 text-xs uppercase tracking-[0.12em] transition',
                 selectedCategory === category
-                  ? 'border-black bg-black text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-black',
+                  ? 'border-black bg-black text-white dark:border-white dark:bg-white dark:text-black'
+                  : 'border-gray-300 bg-white text-gray-700 hover:border-black dark:border-gray-700 dark:bg-[#1a1a1a] dark:text-gray-200 dark:hover:border-white',
               ].join(' ')}
             >
               {category}
@@ -68,7 +68,18 @@ function ProductFilters({
       </div>
 
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-700">Size</label>
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Size</label>
+          {selectedSizes.length > 0 ? (
+            <button
+              type="button"
+              onClick={() => onSizeChange('all')}
+              className="text-[10px] font-medium uppercase tracking-[0.14em] text-gray-500 hover:text-black dark:text-gray-300 dark:hover:text-white"
+            >
+              Clear
+            </button>
+          ) : null}
+        </div>
         <div className="flex flex-wrap gap-2">
           {sizes.map((size) => (
             <button
@@ -77,9 +88,9 @@ function ProductFilters({
               onClick={() => onSizeChange(size)}
               className={[
                 'min-w-12 border px-3 py-2 text-xs uppercase tracking-[0.12em] transition',
-                selectedSize === size
-                  ? 'border-black bg-black text-white'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-black',
+                selectedSizes.includes(size)
+                  ? 'border-black bg-black text-white dark:border-white dark:bg-white dark:text-black'
+                  : 'border-gray-300 bg-white text-gray-700 hover:border-black dark:border-gray-700 dark:bg-[#1a1a1a] dark:text-gray-200 dark:hover:border-white',
               ].join(' ')}
             >
               {size}
@@ -89,7 +100,7 @@ function ProductFilters({
       </div>
 
       <div>
-        <div className="mb-2 flex items-center justify-between text-sm font-medium text-gray-700">
+        <div className="mb-2 flex items-center justify-between text-sm font-medium text-gray-700 dark:text-gray-200">
           <span>Max price</span>
           <span>${maxPrice}</span>
         </div>

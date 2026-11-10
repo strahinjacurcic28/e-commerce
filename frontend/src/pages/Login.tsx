@@ -37,9 +37,9 @@ function Login() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:px-8">
-      <div className="border border-gray-200 bg-white p-8 shadow-sm">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500">Welcome back</p>
-        <h1 className="mb-8 text-3xl font-medium tracking-tight text-black">Login</h1>
+      <div className="border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-[#181818]">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500 dark:text-gray-300">Welcome back</p>
+        <h1 className="mb-8 text-3xl font-medium tracking-tight text-black dark:text-white">Login</h1>
 
         {submitted ? (
           <div className="rounded border border-green-200 bg-green-50 p-4 text-sm text-green-800">
@@ -66,18 +66,18 @@ function Login() {
             placeholder="••••••••"
           />
 
-          <div className="flex items-center justify-between gap-4 text-sm text-gray-600">
+          <div className="flex items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-300">
             <label className="flex items-center gap-2">
               <input
                 type="checkbox"
                 checked={formData.remember}
                 onChange={(event) => setFormData((current) => ({ ...current, remember: event.target.checked }))}
-                className="h-4 w-4 accent-black"
+                className="h-4 w-4 accent-black dark:accent-white"
               />
               Remember me
             </label>
 
-            <a href="#" className="text-black hover:text-gray-600">
+            <a href="#" className="text-black hover:text-gray-600 dark:text-white dark:hover:text-gray-300">
               Forgot password?
             </a>
           </div>
@@ -87,9 +87,9 @@ function Login() {
           </Button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
           New to NOVA?{' '}
-          <Link to="/register" className="font-medium text-black hover:text-gray-600">
+          <Link to="/register" className="font-medium text-black hover:text-gray-600 dark:text-white dark:hover:text-gray-300">
             Create an account
           </Link>
         </p>

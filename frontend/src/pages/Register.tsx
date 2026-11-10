@@ -43,9 +43,9 @@ function Register() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 sm:px-6 lg:px-8">
-      <div className="border border-gray-200 bg-white p-8 shadow-sm">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500">Create account</p>
-        <h1 className="mb-8 text-3xl font-medium tracking-tight text-black">Register</h1>
+      <div className="border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-[#181818]">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-gray-500 dark:text-gray-300">Create account</p>
+        <h1 className="mb-8 text-3xl font-medium tracking-tight text-black dark:text-white">Register</h1>
 
         {submitted ? (
           <div className="rounded border border-green-200 bg-green-50 p-4 text-sm text-green-800">
@@ -94,9 +94,9 @@ function Register() {
           </Button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">
           Already have an account?{' '}
-          <Link to="/login" className="font-medium text-black hover:text-gray-600">
+          <Link to="/login" className="font-medium text-black hover:text-gray-600 dark:text-white dark:hover:text-gray-300">
             Login here
           </Link>
         </p>
